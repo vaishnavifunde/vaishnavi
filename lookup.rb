@@ -25,11 +25,11 @@ def resolve(dns_records, lookup_chain, domain)
   matched_dns = dns_records[domain]
 
   if (!matched_dns)
-    lookup_chain << "Error: Record not found for " + domain
+    lookup_chain << "Misconception: Record not found for " + domain
     return lookup_chain
   end
 
-  if (matched_dns[:type] == "A")
+  if (matched_dns[:type] == "main")
     lookup_chain << matched_dns[:target]
     return lookup_chain
   end
@@ -40,7 +40,7 @@ def resolve(dns_records, lookup_chain, domain)
     return lookup_chain
   end
 
-  lookup_chain << "Invalid record type for " + domain
+  lookup_chain << "Infirm record type for " + domain
   return lookup_chain
 end
 
